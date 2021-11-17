@@ -20,16 +20,29 @@ int main() {
         cout<<endl;
     } 
 
-    for(int j = 0; j < col; j++)
+  for(int i = 0; i < row; i++)
     {
-        if(col%2 == 0 || col == 0) {
-          
-        } else {
-
-        }
-        for(int i = 0; i < row; i++){
+        for(int j = 0; j < col; j++)
+        {
             // cout<<"Enter element ["<<i<<"]["<<j<<"]: ";
             cout<<array[i][j];
+        }
+        cout<<endl;
+    } 
+
+    for(int j = 0; j < col; j++)
+    {
+        if(j%2 == 0 || j == 0) {
+          for(int i = 0; i < row; i++){
+            // cout<<"Enter element ["<<i<<"]["<<j<<"]: ";
+            cout<<array[i][j]<<" ";
           }
+        } else {
+          for(int i = row - 1; i >= 0; i--){
+            // cout<<"Enter element ["<<i<<"]["<<j<<"]: ";
+            cout<<array[i][j]<<" ";
+          }
+        }
+        
     }
   }
