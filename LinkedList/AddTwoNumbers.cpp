@@ -32,6 +32,54 @@ public:
             l1= l1->next;
             l2 = l2->next;
         }
+        while(l1 != nullptr) {
+            val = l1->val + temp;
+            temp = 0;
+            if(val > 9) {
+                int rem = val % 10;
+                ListNode* node = new ListNode(rem);
+                current->next = node;
+               
+                temp = val / 10;
+            } else {
+                ListNode* node = new ListNode(val);
+                current->next = node;
+            }
+            current = current->next;
+            l1= l1->next;
+        }
+        while(l2 != nullptr) {
+            val = l2->val + temp;
+            temp = 0;
+            if(val > 9) {
+                int rem = val % 10;
+                ListNode* node = new ListNode(rem);
+                current->next = node;
+               
+                temp = val / 10;
+            } else {
+                ListNode* node = new ListNode(val);
+                current->next = node;
+            }
+            current = current->next;
+            l2= l2->next;
+        }
+        while(temp) {
+            val = temp;
+            temp = 0;
+            if(val > 9) {
+                int rem = val % 10;
+                ListNode* node = new ListNode(rem);
+                current->next = node;
+               
+                temp = val / 10;
+            } else {
+                ListNode* node = new ListNode(val);
+                current->next = node;
+            }
+            current = current->next;
+            
+        }
         return l3->next;
     }
 };
