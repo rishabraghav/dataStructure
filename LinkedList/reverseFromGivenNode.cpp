@@ -14,36 +14,23 @@ public:
         if(head == nullptr || head->next == nullptr) {
             return head;
         }
-        if(left == 1 && right == 1) {
-            return head;
-        }
         ListNode* current = new ListNode(0);
         current->next = head;
-        int count = 1;
-        ListNode* prev = new ListNode(0);
-        ListNode* node = new ListNode(0);
-        ListNode* node2 = new ListNode(0);
+        ListNode* prev = current; 
+    
+        for(int i = 0; i< left-1; i++) prev = prev->next; 
+    
+        ListNode* start = prev->next; 
+        ListNode* end = start->next; 
+    
+    
+        for(int i=0; i<right-left; i++){
         
-        
-        while(count - 1 < right) {
-            current = current->next;
-            count++;
-            
-            if(count == left) {
-                prev = nullptr;
-                node = current->next;
-                node2 = current->next;
-                while(count - 1 < right) {
-                    ListNode* temp = node;
-                    node = node->next;
-                    temp->next = prev;
-                    prev = temp;
-                    count++;
-                }
-            }
+            start->next = end->next;
+            end->next = prev->next;
+            prev->next = end;
+            end = start->next;
         }
-        current->next = prev;
-        node2->next = node;
-        return head;
+    return current->next;
     }
 };
