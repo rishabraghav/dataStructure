@@ -4,22 +4,28 @@ using namespace std;
 
 #include <cstring>
 
-bool checkPalindrome(char input[]) {
-    int size = strlen(input);
-    int first = 0;
-    int last = size - 1;
-    
-    while(first < last) {
-        if(input[first] != input[last]) {
-            return false;
-        }
-        first++;
-        last--;
+bool ispal(char input[], int s, int e){
+    if(s == e) {
+        return true;
     }
-    return true;
-	
+    
+    if(input[s] != input[e]) {
+        return false;
+    }
+    
+    if(s < e) {
+        ispal(input, s + 1, e - 1);
+    }
 }
 
+bool checkPalindrome(char input[]) {
+    int size = strlen(input);
+    int s = 0;
+    int e = size - 1;
+    
+    return ispal(input, s, e);
+	
+}
 
 
 
