@@ -4,13 +4,13 @@ using namespace std;
 
 int firstIndex(int input[], int size, int x) {
   if(size == 0) {
-      return -1;
+      return -1;  //if the element is not present in the array
   } else {
       static int i = 0;
       if(input[0] == x) {
           return i;
       } else {
-          i++;
+          i++;  //for recursion its zero index, but in real its 0 + 1
           firstIndex(input + 1, size - 1, x);
       }
   }
