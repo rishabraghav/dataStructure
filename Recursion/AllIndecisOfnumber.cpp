@@ -6,7 +6,7 @@ using namespace std;
 int allIndexes(int input[], int size, int x, int output[]) {
 	if(size == 0) return 0;
 	else {
-        static int i = 0;
+        static int i = 0;   //static will not intialise i again in recursion
         static int count = 0;
         
         if(x == input[0]) {
