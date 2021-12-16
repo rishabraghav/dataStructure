@@ -1,7 +1,3 @@
-#include <iostream>
-
-using namespace std;
-
 void merge(int a[], int beg, int mid, int end)    
 {    
     int i, j, k;  
@@ -49,28 +45,17 @@ void merge(int a[], int beg, int mid, int end)
     }    
 }  
 
-void mergeSortHelper(int input[], int size){
-	
-        
+void mergeSortHelper(int input[], int beg, int end){
+	if (beg < end) {
+        int mid = (beg + end)/2;
+        mergeSortHelper(input, beg, mid);
+        mergeSortHelper(input, mid + 1, end);
+        merge(input, beg, mid, end);
+    }    
 }
 
 void mergeSort(int input[], int size){
-    
-	mergeSortHelper()
-        
+    int start = 0;
+    int end = size - 1;
+	mergeSortHelper(input, start, end);       
 }
-
-
-
-int main() {
-  int length;
-  cin >> length;
-  int* input = new int[length];
-  for(int i=0; i < length; i++)
-    cin >> input[i];
-  mergeSort(input, length);
-  for(int i = 0; i < length; i++) {
-    cout << input[i] << " ";
-  }
-}
-
