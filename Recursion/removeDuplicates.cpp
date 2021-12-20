@@ -5,8 +5,7 @@
 using namespace std;
 
 void removeConsecutiveDuplicates(char *input) {
-    int size = strlen(input);
-    
+    int size = strlen(input);  //incomplete
 }
 
 int main() {
