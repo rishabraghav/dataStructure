@@ -5,7 +5,21 @@
 using namespace std;
 
 void removeConsecutiveDuplicates(char *input) {
-    int size = strlen(input);  //incomplete
+        int size = strlen(input);
+    if(size == 0 || size == 1) {
+        return;
+    }
+    if(input[0] == input[1]) {
+        int i = 1;
+        for(; i < size; i++) {
+            input[i - 1] = input[i];
+        }
+        input[i - 1] = input[i];
+        removeConsecutiveDuplicates(input);
+    } else {
+        removeConsecutiveDuplicates(input + 1);
+    }
+    
 }
 
 int main() {
