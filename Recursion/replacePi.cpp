@@ -13,6 +13,7 @@ void replacePi(char input[]) {
             for(int j = strlen(input) - 1; j >= 0; j--) {
                 input[i + 1] = input[i];
             }
+            input[i + 1] = input[i];
         }
         input[0] = '3';
         input[1] = '.';
