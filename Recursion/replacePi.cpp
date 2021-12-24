@@ -14,6 +14,7 @@ void replacePi(char input[]) {
                 input[i + 1] = input[i];
             }
             input[i + 1] = input[i];
+            // input[i + 1] = input[i];
         }
         input[0] = '3';
         input[1] = '.';
