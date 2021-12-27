@@ -2,9 +2,37 @@
 
 using namespace std;
 
-void partition(int input, int start, int end) {
-    int pivot = input[start];
+int partition(int arr[], int start, int end) {
+    int pivot = arr[start]; 
+    int count = 0;
     
+    for(int i = start + 1; i <= end; i++) if(arr[i] <= pivot) count++;
+    
+    int pivotIndex = start + count;
+    
+  	int temp = arr[pivotIndex];
+    arr[pivotIndex] = arr[start];
+    arr[start] = temp;
+    
+    int i = start;
+    int j = end;
+    
+    while(i <= pivotIndex && j >= pivotIndex) {
+        while(arr[i] <= pivot){
+            i++;
+        }
+        while(arr[j] > pivot) {
+            j--;
+        }
+        if(i < pivotIndex && j > pivotIndex) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+    }
+     return pivotIndex;
 }
 
 void quickSortTemp(int input[], int start, int end) {
