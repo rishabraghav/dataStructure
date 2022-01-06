@@ -15,7 +15,21 @@ public:
 using namespace std;
 Node *deleteNode(Node *head, int pos)
 {
-    // Write your code here.
+    if(head == NULL){
+        return head;
+    } //if list is empty  //if position is zero
+    Node* temp = head;
+    int count = 0;
+
+    while(temp != NULL) {
+        if(pos == count) {
+            return temp;
+        }
+        count++;
+        temp = temp -> next;
+    }
+    
+   return 0; //if position is less than size or more than size
 }
 
 
