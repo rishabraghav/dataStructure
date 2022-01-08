@@ -23,13 +23,13 @@ Node *deleteNode(Node *head, int pos)
 
     while(temp != NULL) {
         if(pos == count) {
-            return temp;
+            
         }
         count++;
         temp = temp -> next;
     }
     
-   return 0; //if position is less than size or more than size
+   return head; //if position is less than size or more than size
 }
 
 
