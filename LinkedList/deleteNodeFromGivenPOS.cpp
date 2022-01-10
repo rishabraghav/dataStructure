@@ -12,24 +12,41 @@ public:
 	}
 };
 
-using namespace std;
-Node *deleteNode(Node *head, int pos)
-{
-    if(head == NULL){
-        return head;
-    } //if list is empty  //if position is zero
+using namespace std;int length(Node* head) {
     Node* temp = head;
+    int count = 0;
+    
+    while(temp != NULL) {
+        temp = temp -> next;
+        count++;
+    }
+    return count;
+}
+
+Node *deleteNode(Node *head, int pos)
+{	  
+    int size = length(head);
+    if(head == NULL || pos >= size){
+        return head;
+    } //if list is empty 
+    
+    if(pos == 0) {
+        head = head -> next;
+        return head;
+    } //if position is zero
+    Node* temp = new Node(0);
+    temp -> next = head;
     int count = 0;
 
     while(temp != NULL) {
         if(pos == count) {
-            
+            temp -> next = temp -> next -> next;
         }
         count++;
         temp = temp -> next;
     }
     
-   return head; //if position is less than size or more than size
+   return head;
 }
 
 
