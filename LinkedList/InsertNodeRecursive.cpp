@@ -11,7 +11,6 @@ class Node {
 };
 
 using namespace std;
-Node* insertNode(Node *head, int i, int data) {
 	Node* insertNode(Node *head, int i, int data) {
 	if(head == NULL) {
         return head;
@@ -25,7 +24,7 @@ Node* insertNode(Node *head, int i, int data) {
         head -> next = insertNode(head -> next, i - 1, data);
     }
 }
-}
+
 
 Node *takeinput() {
     int data;
