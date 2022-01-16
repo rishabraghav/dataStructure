@@ -12,7 +12,19 @@ class Node {
 
 using namespace std;
 Node* insertNode(Node *head, int i, int data) {
-	// Write your code here
+	Node* insertNode(Node *head, int i, int data) {
+	if(head == NULL) {
+        return head;
+    }
+    
+    if(i == 0) {
+        Node* newHead = new Node(data);
+        newHead -> next = head;
+        head = newHead;
+    } else {
+        head -> next = insertNode(head -> next, i - 1, data);
+    }
+}
 }
 
 Node *takeinput() {
