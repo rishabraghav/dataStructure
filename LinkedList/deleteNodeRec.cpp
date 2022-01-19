@@ -21,7 +21,7 @@ Node *deleteNodeRec(Node *head, int pos) {
     if(pos == 0) {
         head = head -> next;
     } else {
-        head -> next = deleteNodeRec(head -> next, pos - 1);
+        head -> next = deleteNodeRec(head -> next, pos - 1); // attach current node to recursion
     }
 }
 
