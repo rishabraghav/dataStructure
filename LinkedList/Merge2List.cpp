@@ -23,14 +23,14 @@ Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2)
     
     Node* t1 = head1;
     Node* t2 = head2;
-    Node* head = new Node(0);
+    Node* newHead = new Node(0);
     Node* tail = new Node(0);
     if(t1 -> data <= t2 -> data) {
-        head = head1;
+        newHead = head1;
      	tail = head1;
         t1 = t1 -> next;
     } else {
-        head = head2;
+        newHead = head2;
         tail = head2;
         t2 = t2 -> next;
     }
@@ -54,7 +54,7 @@ Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2)
         tail -> next = t2;
     }
     
-    return head;
+    return newHead;
 }
 
 Node *takeinput()
