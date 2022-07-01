@@ -12,7 +12,7 @@ int coinChangeMinCoins(int n, int m[], int size) {
     if(n == 0) return 0;
     for(int i = 0; i < size; i++) {
         if(n - m[i] >= 0) 
-            ans = min(ans, 1 + coinChangeMinWays(n - m[i], m, size));
+            ans = min(ans, 1 + coinChangeMinCoins(n - m[i], m, size));
     }
 
     return ans;
