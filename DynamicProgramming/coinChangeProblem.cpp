@@ -1,7 +1,25 @@
 #include <iostream>
+#include<climits>
 
 using namespace std;
 // namespace std;
+
+
+
+
+int coinChangeMinCoins(int n, int m[], int size) {
+    int ans = INT_MAX;
+    if(n == 0) return 0;
+    for(int i = 0; i < size; i++) {
+        if(n - m[i] >= 0) 
+            ans = min(ans, 1 + coinChangeMinWays(n - m[i], m, size));
+    }
+
+    return ans;
+}
+
+
+
 
 int coinChangeWays(int n, int m[], int size)
 {
@@ -39,6 +57,6 @@ int main()
         cin >> m[i];
     }
 
-    cout << coinChangeWays(n, m, size);
+    cout << coinChangeMinCoins(n, m, size);
     return 0;
 }
